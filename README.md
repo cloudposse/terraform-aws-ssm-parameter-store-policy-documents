@@ -1,4 +1,8 @@
 
+# terraform-aws-parameter-store-policy
+This module generates JSON documents for restricted permission sets for AWS SSM Parameter Store access.
+Helpful when combined with [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) 
+
 ## Variables
 
 | Name 								| Description 																																																														| Required 	|
