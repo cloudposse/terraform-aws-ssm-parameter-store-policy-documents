@@ -27,7 +27,7 @@ badges:
 
 related:
   - name: "terraform-aws-ssm-parameter-store"
-    description: "AWS SSM Parameter Store module"
+    description: "Terraform module to populate AWS Systems Manager (SSM) Parameter Store with values from Terraform. Works great with Chamber."
     url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store"
   - name: "terraform-aws-ssm-iam-role"
     description: "Terraform module to provision an IAM role with configurable permissions to access SSM Parameter Store"   

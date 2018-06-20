@@ -148,7 +148,7 @@ Available targets:
 
 Check out these related projects.
 
-- [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) - AWS SSM Parameter Store module
+- [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) - Terraform module to populate AWS Systems Manager (SSM) Parameter Store with values from Terraform. Works great with Chamber.
 - [terraform-aws-ssm-iam-role](https://github.com/cloudposse/terraform-aws-ssm-iam-role) - Terraform module to provision an IAM role with configurable permissions to access SSM Parameter Store
 - [terraform-aws-kms-key](https://github.com/cloudposse/terraform-aws-kms-key) - Terraform module to provision a KMS key with alias
 
