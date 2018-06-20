@@ -118,7 +118,7 @@ resource "aws_iam_policy" "ps_manage" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | account_id | The account id of the parameter store you want to allow access to. If none supplied, it uses the current account id of the provider. | string | `` | no |
-| kms_key | The arn of the KMS key that you want to allow access to. If empty it uses a wildcard resource. `*` | string | `` | no |
+| kms_key | The arn of the KMS key that you want to allow access to. If empty it uses a wildcard resource (`*`). | string | `` | no |
 | parameter_root_name | The prefix or root parameter that you want to allow access to. | string | `` | no |
 | region | The region of the parameter store value that you want to allow access to. If none supplied, it uses the current region of the provider. | string | `` | no |
 
