@@ -1,0 +1,156 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-ssm-parameter-store-policy-documents
+
+# Logo for this project
+#logo: docs/logo.png
+
+# License of this project
+license: "APACHE2"
+
+# Canonical GitHub repo
+github_repo: cloudposse/terraform-aws-ssm-parameter-store-policy-documents
+
+# Badges to display
+badges:
+  - name: "Build Status"
+    image: "https://travis-ci.org/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.svg?branch=master"
+    url: "https://travis-ci.org/cloudposse/terraform-aws-ssm-parameter-store-policy-documents"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.svg"
+    url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents/releases"
+  - name: "Slack Community"
+    image: "https://slack.cloudposse.com/badge.svg"
+    url: "https://slack.cloudposse.com"
+
+related:
+  - name: "terraform-aws-ssm-parameter-store"
+    description: "AWS SSM Parameter Store module"
+    url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store"
+
+
+
+# Short description of this project
+description: |-
+  This module generates JSON documents for restricted permission sets for AWS SSM Parameter Store access.
+  Helpful when combined with [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store)
+# How to use this project
+
+examples: |-
+  Create a policy that allows access to write all parameters
+  ```hcl
+  module "ps_policy" {
+    source = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
+  }
+
+  resource "aws_iam_policy" "ps_write" {
+    name_prefix   = "write_any_parameter_store_value"
+    path   = "/"
+    policy = "${module.ps_policy.write_parameter_store_policy}"
+  }
+  ```
+
+  Create a policy that allows managing all policies
+  ```hcl
+  module "ps_policy" {
+    source = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
+  }
+
+  resource "aws_iam_policy" "ps_manage" {
+    name_prefix   = "manage_any_parameter_store_value"
+    path   = "/"
+    policy = "${module.ps_policy.manage_parameter_store_policy}"
+  }
+  ```
+
+  Create a policy that allows reading all parameters that start with a certain prefix
+  ```hcl
+  module "ps_policy" {
+    source              = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
+    parameter_root_name = "/cp/dev/app"
+
+  }
+
+  resource "aws_iam_policy" "ps_manage" {
+    name_prefix   = "write_specific_parameter_store_value"
+    path   = "/"
+    policy = "${module.ps_policy.manage_parameter_store_policy}"
+  }
+  ```
+
+  Create a kms policy to allow decrypting of the parameter store values
+  ```hcl
+  module "kms_key" {
+    source                  = "git::https://github.com/cloudposse/terraform-aws-kms-key.git?ref=master"
+    namespace               = "cp"
+    stage                   = "prod"
+    name                    = "app"
+    description             = "KMS key"
+    deletion_window_in_days = 10
+    enable_key_rotation     = "true"
+    alias                   = "alias/parameter_store_key"
+  }
+
+  module "ps_policy" {
+    source              = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
+    parameter_root_name = "/cp/dev/app"
+    kms_key             = "${module.kms_key.key_arn}"
+
+  }
+
+  resource "aws_iam_policy" "ps_kms" {
+    name_prefix   = "decrypt_parameter_store_value"
+    path   = "/"
+    policy = "${module.ps_policy.manage_kms_store_policy}"
+  }
+  ```
+
+  Create a policy for another account, or region
+  ```hcl
+  module "ps_policy" {
+    source              = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
+    parameter_root_name = "/cp/dev/app"
+    account_id          = "783649272629220"
+    region              = "ap-southeast-2"
+
+  }
+
+  resource "aws_iam_policy" "ps_manage" {
+    name_prefix   = "manage_any_parameter_store_value"
+    path   = "/"
+    policy = "${module.ps_policy.manage_parameter_store_policy}"
+  }
+  ```
+
+# Example usage
+#examples: |-
+#  Example goes here...
+
+# How to get started quickly
+#quickstart: |-
+#  Here's how to get started...
+
+# Other files to include in this README from the project folder
+# include:
+#   - "docs/variables.md"
+#   - "docs/outputs.md"
+
+# Contributors to this project
+contributors:
+  - name: "Erik Osterman"
+    homepage: "https://github.com/osterman"
+    avatar: "http://s.gravatar.com/avatar/88c480d4f73b813904e00a5695a454cb?s=144"
+    github: "osterman"
+  - name: "Jamie Nelson"
+    homepage: "https://github.com/Jamie-BitFlight"
+    avatar: "https://avatars0.githubusercontent.com/u/25075504?s=144&u=ac7e53bda3706cb9d51907808574b6d342703b3e&v=4"
+    github: "Jamie-BitFlight"
+  - name: "Sarkis Varozian"
+    homepage: "https://github.com/sarkis"
+    avatar: "https://avatars3.githubusercontent.com/u/42673?s=144&v=4"
+    github: "sarkis"
