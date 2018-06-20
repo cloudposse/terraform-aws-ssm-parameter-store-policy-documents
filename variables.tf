@@ -1,5 +1,5 @@
 variable "parameter_root_name" {
-  description = "The prefix or root parameter that you want to allow access to"
+  description = "The prefix or root parameter that you want to allow access to."
   default     = ""
 }
 
