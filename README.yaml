@@ -32,7 +32,9 @@ related:
   - name: "terraform-aws-ssm-parameter-store"
     description: "AWS SSM Parameter Store module"
     url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store"
-
+  - name: "terraform-aws-kms-key"
+    description: "KMS Key module"
+    url: "https://github.com/cloudposse/terraform-aws-kms-key"
 
 
 # Short description of this project
