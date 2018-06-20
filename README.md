@@ -1,5 +1,5 @@
 
-# terraform-aws-parameter-store-policy
+# terraform-aws-ssm-parameter-store-policy-documents
 This module generates JSON documents for restricted permission sets for AWS SSM Parameter Store access.
 Helpful when combined with [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) 
 
@@ -28,7 +28,7 @@ Helpful when combined with [terraform-aws-ssm-parameter-store](https://github.co
 
 ```hcl
 module "ps_policy" {
-	source = "git::https://github.com/cloudposse/terraform-aws-parameter-store-policy.git?ref=master"
+	source = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
 }
 
 resource "aws_iam_policy" "ps_read" {
@@ -42,7 +42,7 @@ resource "aws_iam_policy" "ps_read" {
 
 ```hcl
 module "ps_policy" {
-	source = "git::https://github.com/cloudposse/terraform-aws-parameter-store-policy.git?ref=master"
+	source = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
 }
 
 resource "aws_iam_policy" "ps_write" {
@@ -55,7 +55,7 @@ resource "aws_iam_policy" "ps_write" {
 ### Create a policy that allows managing all policies
 ```hcl
 module "ps_policy" {
-	source = "git::https://github.com/cloudposse/terraform-aws-parameter-store-policy.git?ref=master"
+	source = "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
 }
 
 resource "aws_iam_policy" "ps_manage" {
@@ -68,7 +68,7 @@ resource "aws_iam_policy" "ps_manage" {
 ### Create a policy that allows reading all parameters that start with a certain prefix
 ```hcl
 module "ps_policy" {
-	source 							= "git::https://github.com/cloudposse/terraform-aws-parameter-store-policy.git?ref=master"
+	source 							= "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
 	parameter_root_name = "/cp/dev/app"
 
 }
@@ -94,7 +94,7 @@ module "kms_key" {
 }
 
 module "ps_policy" {
-	source 							= "git::https://github.com/cloudposse/terraform-aws-parameter-store-policy.git?ref=master"
+	source 							= "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
 	parameter_root_name = "/cp/dev/app"
 	kms_key 						= "${module.kms_key.key_arn}"
 
@@ -110,7 +110,7 @@ resource "aws_iam_policy" "ps_kms" {
 ### Create a policy for another account, or region
 ```hcl
 module "ps_policy" {
-	source 							= "git::https://github.com/cloudposse/terraform-aws-parameter-store-policy.git?ref=master"
+	source 							= "git::https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.git?ref=master"
 	parameter_root_name = "/cp/dev/app"
 	account_id          = "783649272629220"
 	region 							= "ap-southeast-2"
