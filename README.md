@@ -113,12 +113,44 @@ resource "aws_iam_policy" "ps_manage" {
 
 
 
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| account_id | The account id of the parameter store you want to allow access to. If none supplied, it uses the current account id of the provider. | string | `` | no |
+| kms_key | The arn of the KMS key that you want to allow access to. If empty it uses a wildcard resource (`*`). | string | `` | no |
+| parameter_root_name | The prefix or root parameter that you want to allow access to. | string | `` | no |
+| region | The region of the parameter store value that you want to allow access to. If none supplied, it uses the current region of the provider. | string | `` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| manage_kms_store_policy | A JSON policy document that allows decryption access to a KMS key. |
+| manage_parameter_store_policy | A JSON policy document that allows full access to the parameter store. |
+| put_xray_trace_policy | A JSON policy document that allows putting data into x-ray for tracing parameter store requests. |
+| read_parameter_store_policy | A JSON policy document that only allows read access to the parameter store. |
+| write_parameter_store_policy | A JSON policy document that only allows write access to the parameter store. |
+
+## Makefile Targets
+```
+Available targets:
+
+  help                                This help screen
+  help/all                            Display help for all targets
+  lint                                Lint terraform code
+
+```
+
+
 
 ## Related Projects
 
 Check out these related projects.
 
-- [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) - AWS SSM Parameter Store module
+- [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) - Terraform module to populate AWS Systems Manager (SSM) Parameter Store with values from Terraform. Works great with Chamber.
+- [terraform-aws-ssm-iam-role](https://github.com/cloudposse/terraform-aws-ssm-iam-role) - Terraform module to provision an IAM role with configurable permissions to access SSM Parameter Store
+- [terraform-aws-kms-key](https://github.com/cloudposse/terraform-aws-kms-key) - Terraform module to provision a KMS key with alias
 
 
 ## Help
@@ -223,13 +255,13 @@ Check out [our other projects][github], [apply for a job][jobs], or [hire us][hi
 
 ### Contributors
 
-|  [![Erik Osterman][osterman_avatar]](osterman_homepage)<br/>[Erik Osterman][osterman_homepage] | [![Jamie Nelson][Jamie-BitFlight_avatar]](Jamie-BitFlight_homepage)<br/>[Jamie Nelson][Jamie-BitFlight_homepage] | [![Sarkis Varozian][sarkis_avatar]](sarkis_homepage)<br/>[Sarkis Varozian][sarkis_homepage] |
+|  [![Jamie Nelson][Jamie-BitFlight_avatar]](Jamie-BitFlight_homepage)<br/>[Jamie Nelson][Jamie-BitFlight_homepage] | [![Erik Osterman][osterman_avatar]](osterman_homepage)<br/>[Erik Osterman][osterman_homepage] | [![Sarkis Varozian][sarkis_avatar]](sarkis_homepage)<br/>[Sarkis Varozian][sarkis_homepage] |
 |---|---|---|
 
-  [osterman_homepage]: https://github.com/osterman
-  [osterman_avatar]: http://s.gravatar.com/avatar/88c480d4f73b813904e00a5695a454cb?s=144
   [Jamie-BitFlight_homepage]: https://github.com/Jamie-BitFlight
   [Jamie-BitFlight_avatar]: https://avatars0.githubusercontent.com/u/25075504?s=144&u=ac7e53bda3706cb9d51907808574b6d342703b3e&v=4
+  [osterman_homepage]: https://github.com/osterman
+  [osterman_avatar]: http://s.gravatar.com/avatar/88c480d4f73b813904e00a5695a454cb?s=144
   [sarkis_homepage]: https://github.com/sarkis
   [sarkis_avatar]: https://avatars3.githubusercontent.com/u/42673?s=144&v=4
 
