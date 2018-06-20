@@ -119,6 +119,7 @@ resource "aws_iam_policy" "ps_manage" {
 Check out these related projects.
 
 - [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store) - AWS SSM Parameter Store module
+- [terraform-aws-kms-key](https://github.com/cloudposse/terraform-aws-kms-key) - KMS Key module
 
 
 ## Help
