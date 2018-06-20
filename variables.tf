@@ -4,7 +4,7 @@ variable "parameter_root_name" {
 }
 
 variable "kms_key" {
-  description = "The arn of the KMS key that you want to allow access to. If empty it uses a wildcard resource. `*` "
+  description = "The arn of the KMS key that you want to allow access to. If empty it uses a wildcard resource (`*`)."
   default     = ""
 }
 
@@ -14,6 +14,6 @@ variable "region" {
 }
 
 variable "account_id" {
-  description = "The account id of the parameter store you want to allow access to. If none supplied, it uses the current account id of the provider. "
+  description = "The account id of the parameter store you want to allow access to. If none supplied, it uses the current account id of the provider."
   default     = ""
 }
