@@ -7,9 +7,6 @@
 # Name of this project
 name: terraform-aws-ssm-parameter-store-policy-documents
 
-# Logo for this project
-#logo: docs/logo.png
-
 # License of this project
 license: "APACHE2"
 
@@ -32,15 +29,19 @@ related:
   - name: "terraform-aws-ssm-parameter-store"
     description: "AWS SSM Parameter Store module"
     url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store"
-
-
+  - name: "terraform-aws-ssm-iam-role"
+    description: "Terraform module to provision an IAM role with configurable permissions to access SSM Parameter Store"   
+    url: "https://github.com/cloudposse/terraform-aws-ssm-iam-role"
+  - name: "terraform-aws-kms-key"
+    description: "Terraform module to provision a KMS key with alias"
+    url: "https://github.com/cloudposse/terraform-aws-kms-key"
 
 # Short description of this project
 description: |-
   This module generates JSON documents for restricted permission sets for AWS SSM Parameter Store access.
   Helpful when combined with [terraform-aws-ssm-parameter-store](https://github.com/cloudposse/terraform-aws-ssm-parameter-store)
-# How to use this project
 
+# How to use this project
 examples: |-
   Create a policy that allows access to write all parameters
   ```hcl
@@ -127,29 +128,21 @@ examples: |-
   }
   ```
 
-# Example usage
-#examples: |-
-#  Example goes here...
-
-# How to get started quickly
-#quickstart: |-
-#  Here's how to get started...
-
 # Other files to include in this README from the project folder
-# include:
-#   - "docs/variables.md"
-#   - "docs/outputs.md"
+include:
+  - "docs/terraform.md"
+  - "docs/targets.md"
 
 # Contributors to this project
 contributors:
-  - name: "Erik Osterman"
-    homepage: "https://github.com/osterman"
-    avatar: "http://s.gravatar.com/avatar/88c480d4f73b813904e00a5695a454cb?s=144"
-    github: "osterman"
   - name: "Jamie Nelson"
     homepage: "https://github.com/Jamie-BitFlight"
     avatar: "https://avatars0.githubusercontent.com/u/25075504?s=144&u=ac7e53bda3706cb9d51907808574b6d342703b3e&v=4"
     github: "Jamie-BitFlight"
+  - name: "Erik Osterman"
+    homepage: "https://github.com/osterman"
+    avatar: "http://s.gravatar.com/avatar/88c480d4f73b813904e00a5695a454cb?s=144"
+    github: "osterman"
   - name: "Sarkis Varozian"
     homepage: "https://github.com/sarkis"
     avatar: "https://avatars3.githubusercontent.com/u/42673?s=144&v=4"
