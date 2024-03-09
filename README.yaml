@@ -1,4 +1,3 @@
----
 #
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
@@ -15,22 +14,23 @@ github_repo: cloudposse/terraform-aws-ssm-parameter-store-policy-documents
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://travis-ci.org/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.svg?branch=master"
-    url: "https://travis-ci.org/cloudposse/terraform-aws-ssm-parameter-store-policy-documents"
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.svg"
-    url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents/releases"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-aws-ssm-parameter-store-policy-documents.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-ssm-parameter-store-policy-documents/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
 
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
   - name: "terraform-aws-ssm-parameter-store"
     description: "Terraform module to populate AWS Systems Manager (SSM) Parameter Store with values from Terraform. Works great with Chamber."
     url: "https://github.com/cloudposse/terraform-aws-ssm-parameter-store"
   - name: "terraform-aws-ssm-iam-role"
-    description: "Terraform module to provision an IAM role with configurable permissions to access SSM Parameter Store"   
+    description: "Terraform module to provision an IAM role with configurable permissions to access SSM Parameter Store"
     url: "https://github.com/cloudposse/terraform-aws-ssm-iam-role"
   - name: "terraform-aws-kms-key"
     description: "Terraform module to provision a KMS key with alias"
@@ -134,16 +134,4 @@ include:
   - "docs/targets.md"
 
 # Contributors to this project
-contributors:
-  - name: "Jamie Nelson"
-    homepage: "https://github.com/Jamie-BitFlight"
-    avatar: "https://avatars0.githubusercontent.com/u/25075504?s=144&u=ac7e53bda3706cb9d51907808574b6d342703b3e&v=4"
-    github: "Jamie-BitFlight"
-  - name: "Erik Osterman"
-    homepage: "https://github.com/osterman"
-    avatar: "http://s.gravatar.com/avatar/88c480d4f73b813904e00a5695a454cb?s=144"
-    github: "osterman"
-  - name: "Sarkis Varozian"
-    homepage: "https://github.com/sarkis"
-    avatar: "https://avatars3.githubusercontent.com/u/42673?s=144&v=4"
-    github: "sarkis"
+contributors: []
