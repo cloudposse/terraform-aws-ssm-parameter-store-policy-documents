@@ -5,3 +5,4 @@ repository:
   description: A Terraform module that generates JSON documents for access for common AWS SSM Parameter Store policies
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-module, ssm, parameter-store, iam, iam-policy, acl, chamber
+
